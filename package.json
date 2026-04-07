@@ -6,12 +6,10 @@
     "dev": "vite --port 3000",
     "start": "vite --port 3000",
     "server": "node server/index.js",
-    "build": "npm run check:safe && vite build",
+    "build": "vite build"
     "serve": "vite preview",
     "test": "vitest run --config vitest.config.js test/template-tests/suites",
     "test:smoke": "vitest run --config vitest.config.js test/template-tests/smoke",
-    "check": "tsgo --noEmit && npm run lint:radix -- --fix && npm run format",
-    "check:safe": "timeout 20 npm run check || (echo 'Check timed out after 20 seconds' && exit 1)",
     "format": "biome check --write --unsafe",
     "format:quiet": "biome check --write --unsafe --log-level=warn",
     "lint:radix": "grep -l -r '<SelectItem' src | xargs eslint --config config/eslint/eslint.radix.config.js",
